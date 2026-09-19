@@ -1,14 +1,34 @@
-function ImageEditor() {
+import ImageEditor from "@unlayer/react-image-editor";
+
+function StudioImageEditor() {
+  const posterImage =
+    "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&q=80";
+
   return (
-    <div className="flex h-140 items-center justify-center rounded-2xl bg-black">
-      <div className="text-center">
-        <p className="text-lg font-semibold">Image Editor</p>
-        <p className="mt-2 text-sm text-white/40">
-          React Image Editor will be integrated here.
-        </p>
-      </div>
+    <div className="h-full min-h-[720px] overflow-hidden rounded-[28px] border border-white/10 bg-[#0d0d0d] shadow-[0_0_50px_rgba(255,76,76,0.12)]">
+      <ImageEditor
+        image={posterImage}
+        minHeight={700}
+        style={{
+          width: "100%",
+          height: "100%",
+          background: "#0d0d0d",
+        }}
+        options={{
+          theme: "dark",
+          features: {
+            imageEditor: {
+              dock: "left",
+            },
+          },
+        }}
+        onSave={({ dataUrl }) => {
+          console.log("Poster saved:", dataUrl);
+        }}
+        onCancel={() => console.log("Editing cancelled")}
+      />
     </div>
   );
 }
 
-export default ImageEditor;
+export default StudioImageEditor;

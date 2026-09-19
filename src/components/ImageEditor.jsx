@@ -5,7 +5,7 @@ function StudioImageEditor({ image, onSave }) {
   const editorRef = useRef(null);
 
   return (
-    <div className="h-full min-h-[720px] overflow-hidden rounded-[28px] border border-white/10 bg-[#0d0d0d] shadow-[0_0_50px_rgba(255,76,76,0.12)]">
+    <div className="h-full min-h-180 overflow-hidden rounded-[28px] border border-white/10 bg-[#0d0d0d] shadow-[0_0_50px_rgba(255,76,76,0.12)]">
       <ImageEditor
         ref={editorRef}
         image={image}

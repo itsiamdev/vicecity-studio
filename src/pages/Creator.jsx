@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
-import SceneSelector from "../components/SceneSelector";
 import ImageEditor from "../components/ImageEditor";
 import PosterPreview from "../components/PosterPreview";
 import Toolbar from "../components/Toolbar";
@@ -83,16 +82,6 @@ function Creator({ theme, onToggleTheme }) {
             Choose a scene, refine the composition, and build a poster that feels
             like a neon-soaked Los Santos classic.
           </p>
-        </div>
-
-        <div
-          className={
-            isDark
-              ? "mb-8 rounded-3xl border border-white/10 bg-linear-to-r from-[#ff4d6d]/10 via-white/3 to-[#ffd166]/10 p-4 shadow-[0_0_40px_rgba(255,81,99,0.08)]"
-              : "mb-8 rounded-3xl border border-slate-200 bg-linear-to-r from-[#ffedd5] via-white to-[#fff7ed] p-4 shadow-[0_0_30px_rgba(251,146,60,0.08)]"
-          }
-        >
-          <SceneSelector />
         </div>
 
         <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_360px]">

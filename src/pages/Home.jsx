@@ -1,22 +1,19 @@
-import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
+import { AboutSection, FeatureSection, FinalCTA, GallerySection, HomeHero, ScenesSection, StorySection } from "../components/HomeSections";
+import { Footer, SiteChrome } from "../components/SiteChrome";
 
 function Home({ theme, onToggleTheme }) {
-  const isDark = theme === "dark";
-
   return (
-    <div
-      className={
-        isDark
-          ? "min-h-screen bg-[#080808] text-white"
-          : "min-h-screen bg-[#f5efe5] text-slate-900"
-      }
-    >
-      <Navbar theme={theme} onToggleTheme={onToggleTheme} />
-      <main>
-        <Hero theme={theme} />
-      </main>
-    </div>
+    <main className="site-shell">
+      <SiteChrome theme={theme} onToggleTheme={onToggleTheme} />
+      <HomeHero />
+      <StorySection />
+      <ScenesSection />
+      <FeatureSection />
+      <GallerySection />
+      <AboutSection />
+      <FinalCTA />
+      <Footer />
+    </main>
   );
 }
 

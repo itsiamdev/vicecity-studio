@@ -4,7 +4,7 @@ function PosterPreview({
 }) {
   return (
     <div className="rounded-3xl border border-white/10 bg-[#111111] p-5">
-      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#ff5b6e] via-[#ff9b54] to-[#ffd166] p-5 shadow-[0_0_35px_rgba(255,120,90,0.32)]">
+      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-[#ff5b6e] via-[#ff9b54] to-[#ffd166] p-5 shadow-[0_0_35px_rgba(255,120,90,0.32)]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.5),transparent_25%)]" />
 
         <div className="relative">

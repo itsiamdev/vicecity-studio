@@ -1,13 +1,14 @@
+import { useRef } from "react";
 import ImageEditor from "@unlayer/react-image-editor";
 
-function StudioImageEditor() {
-  const posterImage =
-    "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&q=80";
+function StudioImageEditor({ image, onSave }) {
+  const editorRef = useRef(null);
 
   return (
     <div className="h-full min-h-[720px] overflow-hidden rounded-[28px] border border-white/10 bg-[#0d0d0d] shadow-[0_0_50px_rgba(255,76,76,0.12)]">
       <ImageEditor
-        image={posterImage}
+        ref={editorRef}
+        image={image}
         minHeight={700}
         style={{
           width: "100%",
@@ -22,8 +23,10 @@ function StudioImageEditor() {
             },
           },
         }}
-        onSave={({ dataUrl }) => {
-          console.log("Poster saved:", dataUrl);
+        onSave={({ dataUrl, blob }) => {
+          if (onSave) {
+            onSave(dataUrl, blob);
+          }
         }}
         onCancel={() => console.log("Editing cancelled")}
       />

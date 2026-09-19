@@ -1,10 +1,43 @@
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import SceneSelector from "../components/SceneSelector";
 import ImageEditor from "../components/ImageEditor";
 import PosterPreview from "../components/PosterPreview";
 import Toolbar from "../components/Toolbar";
 
+const DEFAULT_IMAGE =
+  "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&q=80";
+
 function Creator() {
+  const [posterImage, setPosterImage] = useState(DEFAULT_IMAGE);
+  const [showDownloadButton, setShowDownloadButton] = useState(false);
+
+  const handleImageUpload = (event) => {
+    const file = event.target.files?.[0];
+
+    if (!file) {
+      return;
+    }
+
+    const objectUrl = URL.createObjectURL(file);
+    setPosterImage(objectUrl);
+    setShowDownloadButton(false);
+  };
+
+  const handleExport = () => {
+    setShowDownloadButton(true);
+  };
+
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = posterImage;
+    link.download = "vice-city-poster.png";
+    link.target = "_blank";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  };
+
   return (
     <div className="min-h-screen bg-[#050505] text-white">
       <Navbar />
@@ -33,11 +66,16 @@ function Creator() {
 
         <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_360px]">
           <section className="rounded-[30px] border border-white/10 bg-[#101010] p-3 shadow-[0_0_50px_rgba(0,0,0,0.35)]">
-            <ImageEditor />
+            <ImageEditor image={posterImage} onSave={(dataUrl) => setPosterImage(dataUrl)} />
           </section>
 
           <aside className="space-y-6">
-            <Toolbar />
+            <Toolbar
+              onLoadImage={handleImageUpload}
+              onExport={handleExport}
+              onDownload={handleDownload}
+              showDownloadButton={showDownloadButton}
+            />
             <PosterPreview />
           </aside>
         </div>

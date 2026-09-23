@@ -21,7 +21,7 @@ export function SiteChrome({ theme, onToggleTheme }) {
       <Link to="/" className="brand-mark" aria-label="Vice City Studio home"><span>VICE CITY</span><small>STUDIO</small></Link>
       <nav className="desktop-nav" aria-label="Main navigation">{links.map(([label, href]) => href.startsWith("#") ? <a key={label} href={href}>{label}</a> : <Link key={label} to={href}>{label}</Link>)}</nav>
       <div className="site-nav-actions">
-        <button type="button" className="theme-button" onClick={onToggleTheme}>{isDark ? "LIGHT" : "DARK"}</button>
+        <button type="button" className="theme-button" onClick={onToggleTheme} aria-pressed={isDark}>{isDark ? "LIGHT" : "DARK"}</button>
         <Link to="/creator" className="nav-cta">CREATE YOUR VICE <ArrowUpRight size={16} /></Link>
       </div>
       <button className="menu-button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label="Toggle navigation">{open ? <X /> : <Menu />}</button>

@@ -23,15 +23,15 @@ function Navbar({ theme, onToggleTheme }) {
         {/* Logo */}
         <Link to="/" className="group flex items-center gap-3">
           <div className="flex h-9 w-9 items-center justify-center rounded-full bg-linear-to-br from-[#ff7850] to-[#ff5b6e]">
-            <span className="font-(family-name:--font-display) text-[10px] font-bold tracking-wider text-white">
+            <span className="font-display text-[10px] font-bold tracking-wider text-white">
               VC
             </span>
           </div>
           <div className="flex flex-col">
-            <span className="font-(family-name:--font-display) text-sm font-bold uppercase tracking-[0.25em] text-white/90 transition-colors group-hover:text-[#ff9d73]">
+            <span className="font-display text-sm font-bold uppercase tracking-[0.25em] text-white/90 transition-colors group-hover:text-[#ff9d73]">
               Vice City
             </span>
-            <span className="font-(family-name:--font-body) hidden text-[8px] uppercase tracking-[0.35em] text-white/30 sm:block">
+            <span className="font-body hidden text-[8px] uppercase tracking-[0.35em] text-white/30 sm:block">
               Studio
             </span>
           </div>

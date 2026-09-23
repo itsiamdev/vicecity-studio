@@ -3,7 +3,7 @@ import { Footer, SiteChrome } from "../components/SiteChrome";
 
 function Home({ theme, onToggleTheme }) {
   return (
-    <main className="site-shell">
+    <main className={`site-shell ${theme === "light" ? "dark" : ""}`}>
       <SiteChrome theme={theme} onToggleTheme={onToggleTheme} />
       <HomeHero />
       <StorySection />

@@ -1,5 +1,7 @@
 # ViceCity Studio
 
+Live demo: https://vicecity-studio-nine.vercel.app/
+
 ViceCity Studio is a modern React + Vite web app focused on creating stylized retro-inspired city scenes and poster-style compositions. The project combines a landing page, scene selection, and a creator/editor experience for building custom visual concepts.
 
 ## Features
